@@ -1,0 +1,16 @@
+const p = { width: 18, height: 18, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true };
+export const Phone = props => <svg {...p} {...props}><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>;
+export const Mail = props => <svg {...p} {...props}><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg>;
+export const Pin = props => <svg {...p} {...props}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>;
+export const Arrow = props => <svg {...p} {...props}><path d="M5 12h14M13 6l6 6-6 6"/></svg>;
+export const Left = props => <svg {...p} {...props}><path d="M15 18l-6-6 6-6"/></svg>;
+export const Right = props => <svg {...p} {...props}><path d="M9 18l6-6-6-6"/></svg>;
+export const Bed = props => <svg {...p} {...props}><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8M2 16h20M6 10V6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4"/></svg>;
+export const Bath = props => <svg {...p} {...props}><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM6 12V5a2 2 0 0 1 3.5-1.3M6 20l-1 2M18 20l1 2"/></svg>;
+export const Car = props => <svg {...p} {...props}><path d="M5 17h14v-5l-2-5H7l-2 5zM5 17v2M19 17v2M5 12h14"/><circle cx="8" cy="14.5" r=".6"/><circle cx="16" cy="14.5" r=".6"/></svg>;
+export const Area = props => <svg {...p} {...props}><path d="M3 3h7M3 3v7M21 21h-7M21 21v-7M3 3l7 7M21 21l-7-7"/></svg>;
+export const Close = props => <svg {...p} {...props}><path d="M18 6 6 18M6 6l12 12"/></svg>;
+export const Expand = props => <svg {...p} {...props}><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>;
+export const Star = props => <svg {...p} fill="currentColor" stroke="none" {...props}><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>;
+export const Check = props => <svg {...p} {...props}><path d="M20 6 9 17l-5-5"/></svg>;
+export const WhatsApp = props => <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.2-.7-.4zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM20.5 3.5A11.8 11.8 0 0 0 1.9 17.7L.2 24l6.4-1.7A11.8 11.8 0 0 0 24 12a11.7 11.7 0 0 0-3.5-8.5z"/></svg>;

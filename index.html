@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tandon Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfaf7; --paper:#ffffff; --ink:#151515; --muted:#6f6b64; --line:#e8e3da;
+  --gold:#a8865a; --gold-soft:#efe6d8; --shadow:0 20px 50px -20px rgba(20,18,14,.18);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* subtle paper grain texture */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+section{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:110px 0 70px;position:relative}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.02}
+h2{font-size:clamp(2.4rem,5vw,4.4rem);margin:18px 0 22px}
+h2 em,h1 em{font-style:italic;color:var(--gold)}
+p.lead{color:var(--muted);font-size:1.05rem;line-height:1.75;max-width:52ch}
+
+/* Apple-style buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 26px;border-radius:980px;font:500 .92rem var(--sans);
+  border:none;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s,box-shadow .25s}
+.btn:active{transform:scale(.97)}
+.btn-dark{background:var(--ink);color:#fff;box-shadow:0 8px 24px -10px rgba(0,0,0,.5)}
+.btn-dark:hover{background:#2c2c2e;transform:translateY(-1px)}
+.btn-glass{background:rgba(255,255,255,.62);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
+  color:var(--ink);border:1px solid rgba(255,255,255,.7);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 6px 20px -10px rgba(0,0,0,.25)}
+.btn-glass:hover{background:rgba(255,255,255,.85)}
+.btn-link{color:#0066cc;font-weight:400;font-size:1rem}
+.btn-link:hover{text-decoration:underline}
+.btn .arr{transition:transform .25s}.btn:hover .arr{transform:translateX(3px)}
+
+/* Nav */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;width:min(1240px,100% - 24px);
+  display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 24px;border-radius:980px;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(232,227,218,.8);box-shadow:0 10px 30px -18px rgba(0,0,0,.25)}
+.logo{font-family:var(--serif);font-size:1.45rem;letter-spacing:.04em}
+.logo span{display:block;font:500 .55rem var(--sans);letter-spacing:.4em;color:var(--gold);margin-top:-2px}
+.links{display:flex;gap:30px;font-size:.86rem;color:#3a3a3c}
+.links a:hover{color:var(--ink)}
+.nav-cta{height:40px;padding:0 20px;font-size:.85rem}
+.burger{display:none;width:40px;height:40px;border-radius:50%;border:none;background:var(--ink);color:#fff;font-size:1rem;cursor:pointer}
+
+/* Hero */
+#home{padding:0;align-items:stretch}
+.hero-img{position:absolute;inset:0;overflow:hidden}
+.hero-img img{animation:kb 20s ease-out forwards;transform:scale(1.12)}
+@keyframes kb{to{transform:scale(1)}}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,250,247,0) 30%,rgba(251,250,247,.55) 70%,var(--bg) 100%),linear-gradient(90deg,rgba(251,250,247,.85),rgba(251,250,247,0) 60%)}
+.hero-in{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 0 60px;min-height:100svh}
+.hero-in h1{font-size:clamp(3.2rem,9vw,8.2rem);margin:20px 0 26px;max-width:11ch}
+.search{margin-top:38px;display:grid;grid-template-columns:auto 1fr 1fr 1fr auto;align-items:center;gap:6px;padding:8px;border-radius:28px;max-width:900px;
+  background:rgba(255,255,255,.75);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid #fff;box-shadow:var(--shadow)}
+.seg{display:flex;background:#f0eee9;border-radius:980px;padding:4px}
+.seg button{border:none;background:none;padding:9px 16px;border-radius:980px;font:500 .82rem var(--sans);color:var(--muted);cursor:pointer;transition:.25s}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.field{padding:6px 16px;border-left:1px solid var(--line)}
+.field label{display:block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select{border:none;background:none;font:400 .95rem var(--sans);width:100%;outline:none;color:var(--ink);padding-top:3px;-webkit-appearance:none}
+.stats{display:flex;gap:56px;margin-top:46px;flex-wrap:wrap}
+.stats b{font-family:var(--serif);font-size:2.6rem;font-weight:400;display:block}
+.stats small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* Listings */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px}
+.card{background:var(--paper);border-radius:22px;overflow:hidden;box-shadow:0 1px 0 var(--line),var(--shadow);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.card:hover{transform:translateY(-6px)}
+.card .ph{height:300px;overflow:hidden;position:relative}
+.card:first-child .ph{height:380px}
+.card .ph img{transition:transform 1s}
+.card:hover .ph img{transform:scale(1.06)}
+.tag{position:absolute;top:16px;left:16px;padding:7px 14px;border-radius:980px;font-size:.72rem;font-weight:500;
+  background:rgba(255,255,255,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.card .bd{padding:22px 24px 26px}
+.card h3{font-size:1.6rem;margin-bottom:4px}
+.sub{color:var(--muted);font-size:.88rem}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:.85rem}
+.meta .feat{display:flex;gap:16px;color:var(--muted)}
+.meta .price{font-weight:500}
+
+/* Services */
+#services{background:var(--paper)}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:50px}
+.svc div{padding:34px 26px 10px 0;border-right:1px solid var(--line);padding-left:26px;transition:background .4s}
+.svc div:first-child{padding-left:0}.svc div:last-child{border:none}
+.svc div:hover{background:linear-gradient(180deg,var(--gold-soft),transparent)}
+.svc .n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.2rem}
+.svc h3{font-size:1.75rem;margin:22px 0 12px}
+.svc p{color:var(--muted);font-size:.92rem;line-height:1.7}
+
+/* About */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.stack{position:relative;height:min(620px,72vh)}
+.stack .a{position:absolute;inset:0 18% 12% 0;border-radius:24px;overflow:hidden}
+.stack .b{position:absolute;right:0;bottom:0;width:48%;height:46%;border-radius:20px;overflow:hidden;border:8px solid var(--bg);box-shadow:var(--shadow)}
+.badge{position:absolute;left:24px;bottom:24px;background:rgba(255,255,255,.8);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:16px 20px;border-radius:18px}
+.badge b{font-family:var(--serif);font-size:2rem;font-weight:400}
+.ticks{list-style:none;margin:28px 0 34px;display:grid;gap:12px}
+.ticks li{display:flex;gap:12px;font-size:.95rem}
+.ticks li::before{content:"✓";width:22px;height:22px;flex:none;border-radius:50%;background:var(--gold-soft);color:var(--gold);font-size:.7rem;display:grid;place-items:center}
+
+/* Testimonials */
+#reviews{background:#f4f1eb}
+.quote{font-family:var(--serif);font-size:clamp(1.8rem,3.6vw,3.2rem);line-height:1.2;max-width:24ch;margin:26px 0 30px}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+.rev{background:var(--paper);border-radius:20px;padding:28px;box-shadow:0 1px 0 var(--line)}
+.rev .st{color:var(--gold);letter-spacing:3px;font-size:.85rem}
+.rev p{margin:14px 0 18px;line-height:1.7;color:#3a3a3c;font-size:.93rem}
+.rev small{color:var(--muted)}
+
+/* Appraisal / contact */
+.contact{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+form.panel{background:var(--paper);border-radius:28px;padding:34px;box-shadow:var(--shadow);border:1px solid var(--line);display:grid;gap:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.in{background:#f5f4f1;border:1px solid transparent;border-radius:14px;padding:14px 16px;font:400 .95rem var(--sans);width:100%;outline:none;transition:.2s;color:var(--ink)}
+.in:focus{background:#fff;border-color:var(--gold);box-shadow:0 0 0 4px var(--gold-soft)}
+textarea.in{min-height:110px;resize:vertical}
+.cinfo{display:grid;gap:22px;margin-top:34px}
+.cinfo small{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.cinfo a,.cinfo span{font-family:var(--serif);font-size:1.5rem}
+.ph-note{font-size:.7rem;color:var(--gold);font-family:var(--sans)}
+
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:.82rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in-view{opacity:1;transform:none}
+
+/* Responsive */
+@media(max-width:1000px){
+  .grid{grid-template-columns:1fr 1fr}.card:first-child{grid-column:1/-1}
+  .svc{grid-template-columns:1fr 1fr}.svc div{border-right:none;border-bottom:1px solid var(--line);padding-left:0!important}
+  .about,.contact{grid-template-columns:1fr;gap:48px}
+  .revs{grid-template-columns:1fr}
+  .search{grid-template-columns:1fr 1fr;border-radius:24px}
+  .search .seg{grid-column:1/-1;justify-self:start}
+  .field{border-left:none;background:#f7f6f3;border-radius:14px;padding:10px 14px}
+  .search .btn{grid-column:1/-1;justify-content:center}
+}
+@media(max-width:760px){
+  .links,.nav-cta{display:none}.burger{display:block}
+  nav.open{border-radius:26px;flex-wrap:wrap}
+  nav.open .links{display:flex;flex-direction:column;width:100%;gap:18px;padding:18px 0 8px;font-size:1.05rem}
+  .grid{grid-template-columns:1fr}
+  .card .ph,.card:first-child .ph{height:260px}
+  .svc{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  .stats{gap:30px}
+  .stack{height:440px}
+  form.panel{padding:22px}
+  section{padding:100px 0 60px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#home" class="logo">TANDON<span>REAL ESTATE</span></a>
+  <div class="links">
+    <a href="#listings">Buy</a><a href="#listings">Rent</a><a href="#services">Sell</a>
+    <a href="#about">About</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="btn btn-dark nav-cta">Free Appraisal</a>
+  <button class="burger" aria-label="Menu" onclick="nav.classList.toggle('open')">☰</button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=80" alt="Luxury home exterior"></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow rv">Tandon Real Estate · Australia</div>
+    <h1 class="rv">Where home <em>begins.</em></h1>
+    <p class="lead rv">Buying, selling, leasing and managing property with integrity, local insight and an unwavering commitment to our clients.</p>
+    <div class="search rv">
+      <div class="seg"><button class="on">Buy</button><button>Rent</button><button>Sold</button></div>
+      <div class="field"><label>Location</label><input placeholder="Suburb or postcode"></div>
+      <div class="field"><label>Type</label><select><option>Any</option><option>House</option><option>Apartment</option><option>Townhouse</option><option>Land</option></select></div>
+      <div class="field"><label>Price</label><select><option>Any</option><option>Under $750k</option><option>$750k – $1.2m</option><option>$1.2m+</option></select></div>
+      <a href="#listings" class="btn btn-dark">Search <span class="arr">→</span></a>
+    </div>
+    <div class="stats rv">
+      <div><b data-count="500">0</b><small>Properties Sold</small></div>
+      <div><b data-count="98">0</b><small>% Client Satisfaction</small></div>
+      <div><b data-count="15">0</b><small>Years Experience</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section id="listings">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow rv">Featured Listings</div><h2 class="rv">Homes worth <em>coming home to</em></h2></div>
+      <a href="#contact" class="btn btn-glass rv">View all properties <span class="arr">→</span></a>
+    </div>
+    <div class="grid">
+      <article class="card rv"><div class="ph"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1400&q=80" alt=""><span class="tag">For Sale</span></div>
+        <div class="bd"><h3>12 Example Street</h3><div class="sub">Suburb, VIC</div>
+        <div class="meta"><div class="feat"><span>4 Bed</span><span>3 Bath</span><span>2 Car</span></div><span class="price">Contact Agent</span></div></div></article>
+      <article class="card rv"><div class="ph"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=80" alt=""><span class="tag">For Sale</span></div>
+        <div class="bd"><h3>8 Sample Avenue</h3><div class="sub">Suburb, VIC</div>
+        <div class="meta"><div class="feat"><span>3 Bed</span><span>2 Bath</span><span>2 Car</span></div><span class="price">$890k – $950k</span></div></div></article>
+      <article class="card rv"><div class="ph"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80" alt=""><span class="tag">For Lease</span></div>
+        <div class="bd"><h3>5/21 Placeholder Rd</h3><div class="sub">Suburb, VIC</div>
+        <div class="meta"><div class="feat"><span>2 Bed</span><span>1 Bath</span><span>1 Car</span></div><span class="price">$620 / week</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow rv">Our Services</div>
+    <h2 class="rv">Every step, <em>handled</em> with care.</h2>
+    <p class="lead rv">A full-service agency built around results and relationships — from the first conversation to the final key handover.</p>
+    <div class="svc">
+      <div class="rv"><span class="n">01</span><h3>Sales</h3><p>Strategic marketing, expert negotiation and premium presentation to achieve the best possible price.</p></div>
+      <div class="rv"><span class="n">02</span><h3>Buying</h3><p>Access to on- and off-market opportunities with honest guidance through every inspection and offer.</p></div>
+      <div class="rv"><span class="n">03</span><h3>Leasing</h3><p>Quality tenants found fast through thorough screening and well-presented listings.</p></div>
+      <div class="rv"><span class="n">04</span><h3>Property Management</h3><p>Proactive, transparent care of your investment — maximising returns while protecting your asset.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div class="stack rv">
+      <div class="a"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80" alt="Interior"></div>
+      <div class="b"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="Keys handover"></div>
+      <div class="badge"><b>Local</b><br><small class="sub">experts, personal service</small></div>
+    </div>
+    <div>
+      <div class="eyebrow rv">About Tandon</div>
+      <h2 class="rv">Real estate, done the <em>right</em> way.</h2>
+      <p class="lead rv">Tandon Real Estate is a boutique, family-values agency. We believe property is personal — so we listen first, advise honestly and work tirelessly for every client, whether it's a first home or a growing portfolio.</p>
+      <ul class="ticks rv">
+        <li>Deep local market knowledge</li>
+        <li>Transparent communication, every step</li>
+        <li>Multilingual, community-focused team</li>
+        <li>Proven results across sales &amp; leasing</li>
+      </ul>
+      <a href="#contact" class="btn btn-dark rv">Meet the team <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="eyebrow rv">Client Stories</div>
+    <p class="quote rv">“Professional, honest and genuinely caring — they made selling our home <em style="color:var(--gold)">effortless</em>.”</p>
+    <div class="revs">
+      <div class="rev rv"><div class="st">★★★★★</div><p>Outstanding communication from start to finish. We achieved above our expectations.</p><small>— Vendor, 2025</small></div>
+      <div class="rev rv"><div class="st">★★★★★</div><p>Helped us secure our first home with patience and clear advice. Couldn't recommend more.</p><small>— First home buyers</small></div>
+      <div class="rev rv"><div class="st">★★★★★</div><p>Our rental is managed flawlessly. Quick responses and great tenants every time.</p><small>— Investor, landlord</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <div class="eyebrow rv">Get in Touch</div>
+      <h2 class="rv">What's your home <em>worth?</em></h2>
+      <p class="lead rv">Request a complimentary, no-obligation market appraisal from our team.</p>
+      <div class="cinfo rv">
+        <div><small>Phone</small><a href="tel:">0400 000 000</a> <span class="ph-note">placeholder</span></div>
+        <div><small>Email</small><a href="mailto:">info@tandonrealestate.com.au</a></div>
+        <div><small>Office</small><span>Address, Suburb VIC</span> <span class="ph-note">placeholder</span></div>
+      </div>
+    </div>
+    <form class="panel rv" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we\'ll be in touch ✓'">
+      <div class="row"><input class="in" placeholder="Full name" required><input class="in" placeholder="Phone"></div>
+      <input class="in" type="email" placeholder="Email address" required>
+      <input class="in" placeholder="Property address">
+      <select class="in"><option>I'm looking to sell</option><option>I'm looking to buy</option><option>I need a property manager</option><option>I'm looking to rent</option></select>
+      <textarea class="in" placeholder="Anything else we should know?"></textarea>
+      <button class="btn btn-dark" style="justify-content:center;height:52px">Request Appraisal <span class="arr">→</span></button>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap"><span class="logo" style="font-size:1.1rem">TANDON</span><span>© 2026 Tandon Real Estate. All rights reserved.</span><span>Privacy · Terms</span></div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+document.querySelectorAll('[data-count]').forEach(el=>{const t=+el.dataset.count;let s=null;
+  const step=ts=>{s??=ts;const p=Math.min((ts-s)/1800,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)))+(p===1&&t>=100?'+':'');if(p<1)requestAnimationFrame(step)};
+  setTimeout(()=>requestAnimationFrame(step),600)});
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{b.parentNode.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
+document.querySelectorAll('#nav .links a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+</script>
+</body>
+</html>
